@@ -418,8 +418,10 @@ section { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var(--lin
 .svc h3 { font-size: var(--step-1); }
 .svc .mono { color: var(--amber); font-size: 11px; }
 .svc p { color: var(--muted); }
-.rates { margin-top: 16px; color: var(--muted); }
-.rates b { color: var(--fg); }
+.rates-cta { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 24px; padding: 20px 24px; border-radius: var(--radius); border: 1px solid color-mix(in srgb, var(--amber) 40%, var(--line)); background: color-mix(in srgb, var(--amber) 8%, var(--surface)); }
+.rates-cta p { color: var(--muted); min-width: 0; }
+.rates-cta .btn { padding-block: 13px; }
+.rates-cta b { color: var(--fg); }
 
 /* contact */
 .contact { text-align: center; position: relative; overflow: hidden; }
@@ -1104,7 +1106,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div class="svc spot reveal" style="--i:4"><span class="mono">Stories</span><h3 data-i18n="s5">ستوري بلينك</h3><p data-i18n="s5p">مجموعة ستوريز على إنستجرام وفيسبوك فيها لينك مباشر للتحميل أو الشراء.</p></div>
         <div class="svc spot reveal" style="--i:5"><span class="mono">Launch</span><h3 data-i18n="s6">تغطية إطلاق منتج</h3><p data-i18n="s6p">محتوى يوم الإطلاق ومتابعة بعده، للموبايلات والتطبيقات والأدوات الجديدة.</p></div>
       </div>
-      <p class="rates reveal" data-i18n="rates" data-html><b>الأسعار</b> حسب نوع المحتوى وعدد المنصات. ابعت تفاصيل الحملة وهبعتلك عرض سعر.</p>
+      <div class="rates-cta reveal">
+        <p data-i18n="rates" data-html><b>باقات ثابتة بأسعار واضحة</b>، من ستوري لحد الانتشار الكامل على 3 منصات.</p>
+        <a class="btn btn-primary" href="https://elalamyph.github.io/rates.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg><span data-i18n="ratesBtn">الباقات والأسعار</span></a>
+      </div>
     </div>
   </section>
 
@@ -1119,6 +1124,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       </div>
       <span class="copied" id="copied" aria-live="polite"></span>
       <div class="socials">
+        <a class="btn btn-primary" href="https://elalamyph.github.io/rates.html"><span data-i18n="ratesBtn">الباقات والأسعار</span></a>
         <a class="btn" href="https://www.tiktok.com/@elalamy_ph" target="_blank" rel="noopener">TikTok</a>
         <a class="btn" href="https://www.instagram.com/elalamy_ph/" target="_blank" rel="noopener">Instagram</a>
         <a class="btn" href="https://www.facebook.com/mahmoudOthman800" target="_blank" rel="noopener">Facebook</a>
@@ -1190,7 +1196,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     s4: "UGC for ads", s4p: "A video with usage rights that you run as a paid ad from your own accounts.",
     s5: "Stories with a link", s5p: "A set of Instagram and Facebook stories with a direct download or purchase link.",
     s6: "Launch coverage", s6p: "Launch-day content plus follow-up, for new phones, apps and tools.",
-    rates: "<b>Rates</b> depend on the format and the number of platforms. Send me the campaign details and I'll reply with a quote.",
+    rates: "<b>Fixed packages with clear prices</b>, from a single story to full reach across 3 platforms.", ratesBtn: "Packages & prices",
     ctTitle: "Let's make something <em>that spreads</em>", ctSub: "For collaborations and ads, email me.",
     copy: "Copy email", foot1: "TikTok figures from account analytics (Sep 6 – Nov 4, 2026). Follower counts from public profiles.", foot2: "Last updated: Nov 5, 2026"
   };

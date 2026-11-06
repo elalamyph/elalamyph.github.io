@@ -312,6 +312,53 @@ section { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var(--lin
 }
 .brand:hover { border-color: var(--amber); color: var(--amber); }
 
+/* sponsored campaigns */
+.ad-stats { display: flex; flex-wrap: wrap; gap: 12px 32px; margin-bottom: 24px; }
+.ad-stats div { display: grid; gap: 2px; }
+.ad-stats b { font: 800 var(--step-2)/1 var(--font-display); color: var(--amber); }
+.ad-stats span { color: var(--muted); font-size: var(--step--1); }
+.ads { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+.ad { display: grid; gap: 10px; text-decoration: none; color: inherit; min-width: 0; }
+.ad-cover { position: relative; aspect-ratio: 3 / 4; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--surface-2); }
+.ad-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.ad:hover .ad-cover img { transform: scale(1.05); }
+.ad:hover .ad-cover, .ad-top .ad-cover { border-color: var(--amber); }
+.ad-top .ad-cover { box-shadow: 0 0 0 1px var(--amber), 0 20px 40px -20px rgba(255, 140, 30, .5); }
+.ad-brand { position: absolute; left: 8px; right: 8px; bottom: 8px; z-index: 1; display: flex; align-items: center; gap: 7px; padding: 6px 10px 6px 6px; border-radius: 999px; background: rgba(15, 13, 11, .62); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(255, 220, 170, .18); font: 600 12px/1.2 var(--font-display); color: #fff; direction: ltr; width: max-content; max-width: calc(100% - 16px); }
+.ad-brand img, .ad-brand .mono-ic { width: 22px; height: 22px; border-radius: 7px; flex: none; object-fit: cover; }
+.ad-brand .mono-ic { display: grid; place-items: center; background: linear-gradient(150deg, #ffd08a, var(--amber-deep)); color: var(--amber-ink); font: 800 12px/1 var(--font-display); }
+.ad-brand > span:last-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ad .play { top: 10px; inset-inline-start: 10px; width: 34px; height: 34px; }
+.ad:hover .play { background: var(--amber); }
+.ad:hover .play svg { fill: var(--amber-ink); }
+.ad-meta { display: grid; gap: 6px; }
+.ad-meta .vline .views { font-size: var(--step-2); }
+
+/* brand wall */
+.pf-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 16px; }
+.pf { position: relative; display: grid; justify-items: center; gap: 10px; padding: 34px 20px 26px; border-radius: 20px; background: radial-gradient(120% 100% at 50% 0%, var(--surface-2), var(--surface)); border: 1px solid var(--line); text-align: center; }
+.pf-tag { position: absolute; top: 16px; inset-inline-start: 18px; color: var(--amber); font-size: 11px; }
+.pf b { font: 800 var(--step-2)/1.1 var(--font-display); }
+.pf small, .pt small { color: var(--muted); font-size: var(--step--1); }
+.logo-ico { display: grid; place-items: center; flex: none; width: 56px; height: 56px; border-radius: 16px; overflow: hidden; background: #f4f2ed; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6), 0 12px 24px -10px rgba(0, 0, 0, .8), 0 0 0 1px rgba(255, 255, 255, .06); }
+.logo-ico img { width: 100%; height: 100%; object-fit: cover; }
+.logo-ico.fit img { object-fit: contain; padding: 14%; }
+.logo-ico.cam { background: linear-gradient(150deg, #ffd08a, var(--amber) 55%, var(--amber-deep)); }
+.logo-ico.cam svg { width: 55%; height: 55%; fill: var(--amber-ink); }
+.logo-ico.big { width: 96px; height: 96px; border-radius: 26px; }
+.wm-pill { display: block; background: #f4f2ed; border-radius: 999px; padding: 8px 18px; max-width: 100%; }
+.wm-pill img { height: 26px; width: auto; max-width: 100%; display: block; mix-blend-mode: multiply; }
+.pt-note { color: var(--muted); margin: -12px 0 20px; }
+.pt-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.pt { display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); min-width: 0; transition: border-color .25s, transform .25s; }
+.pt:hover { border-color: color-mix(in srgb, var(--amber) 55%, var(--line)); transform: translateY(-2px); }
+.pt .logo-ico { width: 52px; height: 52px; border-radius: 15px; }
+.pt-txt { display: grid; gap: 2px; min-width: 0; }
+.pt-txt b { font: 600 var(--step-0)/1.2 var(--font-display); text-align: start; }
+.pt-txt small { font-size: 12px; }
+.pt-more { margin-top: 18px; color: var(--muted); font-size: var(--step--1); line-height: 1.9; }
+.pt-more .ltr { color: var(--fg); }
+
 /* setup & tools */
 .gear-worth { justify-self: start; display: inline-flex; align-items: baseline; gap: 10px; margin-top: 6px; padding: 10px 18px; border: 1px solid color-mix(in srgb, var(--amber) 40%, var(--line)); border-radius: 999px; background: color-mix(in srgb, var(--amber) 8%, var(--surface)); color: var(--fg) !important; font-weight: 600; }
 .gear-worth b { font-family: var(--font-display); font-weight: 800; font-size: var(--step-1); color: var(--amber); direction: ltr; unicode-bidi: isolate; }
@@ -429,6 +476,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .aud .panel:last-child { grid-column: span 2; }
   .tops { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ads { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 31%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; }
+  .ad { scroll-snap-align: start; }
 }
 @media (max-width: 760px) {
   .hero .wrap { grid-template-columns: 1fr; }
@@ -442,6 +491,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .ribbon .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 26px; }
   .why, .platforms, .aud, .services { grid-template-columns: 1fr; }
   .gears { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .ads { grid-auto-columns: 44%; }
+  .pt-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pf-row { gap: 10px; }
+  .pf { padding: 30px 12px 20px; }
+  .logo-ico.big { width: 72px; height: 72px; border-radius: 20px; }
+  .wm-pill { padding: 6px 10px; }
+  .wm-pill img { height: 18px; }
   .tools { grid-template-columns: 1fr; gap: 12px; }
   .gear-body { padding: 14px 14px 16px; }
   .gear h3 { font-size: var(--step-0); }
@@ -478,6 +534,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .ribbon .wrap, .metrics, .tops { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .why, .platforms, .aud, .services { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .gears, .tools { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ads { grid-template-columns: repeat(5, minmax(0, 1fr)); grid-auto-flow: row; overflow: visible; }
+  .pt-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .ad-brand { -webkit-backdrop-filter: none; backdrop-filter: none; background: #0f0d0b; }
+  .logo-ico, .ad-top .ad-cover, .pt, .pf { box-shadow: none !important; }
   .gears { gap: 14px; }
   .gear-shot { aspect-ratio: 16 / 10; }
   .tilt::after { display: none; }
@@ -819,15 +879,142 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   <section>
     <div class="wrap">
       <div class="sec-head reveal">
+        <span class="mono eyebrow">Sponsored</span>
+        <h2 data-i18n="adTitle">حملات إعلانية اشتغلت عليها</h2>
+        <p data-i18n="adSub">إعلانات حقيقية لبراندات AI وتقنية، بأرقامها من تيك توك. اضغط على أي إعلان عشان تشوفه.</p>
+      </div>
+      <div class="ad-stats reveal">
+        <div><b class="ltr">10</b><span data-i18n="adS1">حملات في الصفحة دي</span></div>
+        <div><b class="ltr">8.1M</b><span data-i18n="adS2">مشاهدة على الإعلانات</span></div>
+        <div><b class="ltr">~258K</b><span data-i18n="adS3">متوسط مشاهدات الإعلان (الوسيط)</span></div>
+      </div>
+      <div class="ads">
+        <a class="ad reveal ad-top" style="--i:0" href="https://www.tiktok.com/@elalamy_ph/video/7639013192114474260" target="_blank" rel="noopener">
+          <div class="ad-cover"><img src="ads/hailuo.jpg" alt="" width="480" height="640" loading="lazy">
+            <span class="ad-brand"><img src="brands/hailuo.png" alt="" width="24" height="24"><span>Hailuo AI</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span>
+          </div>
+          <div class="ad-meta">
+            <div class="vline"><span class="views">5.7M</span><small data-i18n="views">مشاهدة</small></div>
+            <div class="mini"><span><b>48K</b><i data-i18n="likes" style="font-style:normal">إعجاب</i></span><span><b>14.7K</b><i data-i18n="saves" style="font-style:normal">حفظ</i></span></div>
+          </div>
+        </a>
+        <a class="ad reveal" style="--i:1" href="https://www.tiktok.com/@elalamy_ph/video/7617964065570196757" target="_blank" rel="noopener">
+          <div class="ad-cover"><img src="ads/temu.jpg" alt="" width="480" height="640" loading="lazy">
+            <span class="ad-brand"><img src="brands/temu.png" alt="" width="24" height="24"><span>Temu</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span>
+          </div>
+          <div class="ad-meta">
+            <div class="vline"><span class="views">482.1K</span><small data-i18n="views">مشاهدة</small></div>
+            <div class="mini"><span><b>10.5K</b><i data-i18n="likes" style="font-style:normal">إعجاب</i></span><span><b>531</b><i data-i18n="saves" style="font-style:normal">حفظ</i></span></div>
+          </div>
+        </a>
+        <a class="ad reveal" style="--i:2" href="https://www.tiktok.com/@elalamy_ph/video/7559959020736515346" target="_blank" rel="noopener">
+          <div class="ad-cover"><img src="ads/nim.jpg" alt="" width="480" height="640" loading="lazy">
+            <span class="ad-brand"><span class="mono-ic">N</span><span>Nim AI</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span>
+          </div>
+          <div class="ad-meta">
+            <div class="vline"><span class="views">457.4K</span><small data-i18n="views">مشاهدة</small></div>
+            <div class="mini"><span><b>40.6K</b><i data-i18n="likes" style="font-style:normal">إعجاب</i></span><span><b>8.3K</b><i data-i18n="saves" style="font-style:normal">حفظ</i></span></div>
+          </div>
+        </a>
+        <a class="ad reveal" style="--i:3" href="https://www.tiktok.com/@elalamy_ph/video/7637063784292551957" target="_blank" rel="noopener">
+          <div class="ad-cover"><img src="ads/minimax.jpg" alt="" width="480" height="640" loading="lazy">
+            <span class="ad-brand"><span class="mono-ic">M</span><span>MiniMax Agent</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span>
+          </div>
+          <div class="ad-meta">
+            <div class="vline"><span class="views">302.1K</span><small data-i18n="views">مشاهدة</small></div>
+            <div class="mini"><span><b>11.1K</b><i data-i18n="likes" style="font-style:normal">إعجاب</i></span><span><b>1K</b><i data-i18n="saves" style="font-style:normal">حفظ</i></span></div>
+          </div>
+        </a>
+        <a class="ad reveal" style="--i:4" href="https://www.tiktok.com/@elalamy_ph/video/7592744604462501127" target="_blank" rel="noopener">
+          <div class="ad-cover"><img src="ads/skywork.jpg" alt="" width="480" height="640" loading="lazy">
+            <span class="ad-brand"><span class="mono-ic">S</span><span>Skywork AI</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span>
+          </div>
+          <div class="ad-meta">
+            <div class="vline"><span class="views">282.8K</span><small data-i18n="views">مشاهدة</small></div>
+            <div class="mini"><span><b>14.1K</b><i data-i18n="likes" style="font-style:normal">إعجاب</i></span><span><b>3.4K</b><i data-i18n="saves" style="font-style:normal">حفظ</i></span></div>
+          </div>
+        </a>
+        <a class="ad reveal" style="--i:5" href="https://www.tiktok.com/@elalamy_ph/video/7604836459824057620" target="_blank" rel="noopener">
+          <div class="ad-cover"><img src="ads/verdent.jpg" alt="" width="480" height="640" loading="lazy">
+            <span class="ad-brand"><img src="brands/verdent.png" alt="" width="24" height="24"><span>Verdent</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span>
+          </div>
+          <div class="ad-meta">
+            <div class="vline"><span class="views">233K</span><small data-i18n="views">مشاهدة</small></div>
+            <div class="mini"><span><b>12.9K</b><i data-i18n="likes" style="font-style:normal">إعجاب</i></span><span><b>2.4K</b><i data-i18n="saves" style="font-style:normal">حفظ</i></span></div>
+          </div>
+        </a>
+        <a class="ad reveal" style="--i:6" href="https://www.tiktok.com/@elalamy_ph/video/7552509764945661202" target="_blank" rel="noopener">
+          <div class="ad-cover"><img src="ads/pippit.jpg" alt="" width="480" height="640" loading="lazy">
+            <span class="ad-brand"><span class="mono-ic">P</span><span>Pippit AI</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span>
+          </div>
+          <div class="ad-meta">
+            <div class="vline"><span class="views">206K</span><small data-i18n="views">مشاهدة</small></div>
+            <div class="mini"><span><b>10.7K</b><i data-i18n="likes" style="font-style:normal">إعجاب</i></span><span><b>1.1K</b><i data-i18n="saves" style="font-style:normal">حفظ</i></span></div>
+          </div>
+        </a>
+        <a class="ad reveal" style="--i:7" href="https://www.tiktok.com/@elalamy_ph/video/7568080819256888597" target="_blank" rel="noopener">
+          <div class="ad-cover"><img src="ads/emergent.jpg" alt="" width="480" height="640" loading="lazy">
+            <span class="ad-brand"><span class="mono-ic">E</span><span>Emergent</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span>
+          </div>
+          <div class="ad-meta">
+            <div class="vline"><span class="views">166K</span><small data-i18n="views">مشاهدة</small></div>
+            <div class="mini"><span><b>13.2K</b><i data-i18n="likes" style="font-style:normal">إعجاب</i></span><span><b>900</b><i data-i18n="saves" style="font-style:normal">حفظ</i></span></div>
+          </div>
+        </a>
+        <a class="ad reveal" style="--i:8" href="https://www.tiktok.com/@elalamy_ph/video/7535791138934967559" target="_blank" rel="noopener">
+          <div class="ad-cover"><img src="ads/mgx.jpg" alt="" width="480" height="640" loading="lazy">
+            <span class="ad-brand"><span class="mono-ic">M</span><span>MGX</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span>
+          </div>
+          <div class="ad-meta">
+            <div class="vline"><span class="views">126.6K</span><small data-i18n="views">مشاهدة</small></div>
+            <div class="mini"><span><b>9.3K</b><i data-i18n="likes" style="font-style:normal">إعجاب</i></span><span><b>684</b><i data-i18n="saves" style="font-style:normal">حفظ</i></span></div>
+          </div>
+        </a>
+        <a class="ad reveal" style="--i:9" href="https://www.tiktok.com/@elalamy_ph/video/7532860207593032978" target="_blank" rel="noopener">
+          <div class="ad-cover"><img src="ads/bith.jpg" alt="" width="480" height="640" loading="lazy">
+            <span class="ad-brand"><span class="mono-ic">B</span><span>BITH AI</span></span>
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg></span>
+          </div>
+          <div class="ad-meta">
+            <div class="vline"><span class="views">121.2K</span><small data-i18n="views">مشاهدة</small></div>
+            <div class="mini"><span><b>11.7K</b><i data-i18n="likes" style="font-style:normal">إعجاب</i></span><span><b>818</b><i data-i18n="saves" style="font-style:normal">حفظ</i></span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head reveal">
         <span class="mono eyebrow">Brands</span>
         <h2 data-i18n="brTitle">براندات اشتغلت معاها</h2>
       </div>
-    </div>
-    <div class="marquee reveal">
-      <div class="marquee-track">
-        <span class="brand">MiniMax Agent</span><span class="brand">Kimi.ai</span><span class="brand">Temu</span><span class="brand">itel</span><span class="brand">Hollyland</span><span class="brand">Godox</span><span class="brand">VIAIM</span><span class="brand">Lenyes</span><span class="brand">FlexArt AI</span>
-        <span class="brand" aria-hidden="true">MiniMax Agent</span><span class="brand" aria-hidden="true">Kimi.ai</span><span class="brand" aria-hidden="true">Temu</span><span class="brand" aria-hidden="true">itel</span><span class="brand" aria-hidden="true">Hollyland</span><span class="brand" aria-hidden="true">Godox</span><span class="brand" aria-hidden="true">VIAIM</span><span class="brand" aria-hidden="true">Lenyes</span><span class="brand" aria-hidden="true">FlexArt AI</span>
+      <p class="pt-note reveal" data-i18n="brNote">مجموعة مختارة من البراندات اللي اشتغلت معاها، مش كلهم.</p>
+      <div class="pt-grid">
+        <div class="pt reveal" style="--i:0"><span class="logo-ico"><img src="brands/kimi.png" alt="" loading="lazy"></span><span class="pt-txt"><b class="ltr">Kimi</b><small data-i18n="pk">مساعد ووكيل AI</small></span></div>
+        <div class="pt reveal" style="--i:1"><span class="logo-ico fit"><img src="brands/minimax.png" alt="" loading="lazy"></span><span class="pt-txt"><b class="ltr">MiniMax</b><small data-i18n="pmm">وكيل AI ونماذج ذكاء اصطناعي</small></span></div>
+        <div class="pt reveal" style="--i:2"><span class="logo-ico"><img src="brands/verdent.png" alt="" loading="lazy"></span><span class="pt-txt"><b class="ltr">Verdent</b><small data-i18n="pv">برمجة بالـ AI</small></span></div>
+        <div class="pt reveal" style="--i:3"><span class="logo-ico"><img src="brands/meshy.png" alt="" loading="lazy"></span><span class="pt-txt"><b class="ltr">Meshy</b><small data-i18n="pm">مجسمات 3D بالـ AI</small></span></div>
+        <div class="pt reveal" style="--i:4"><span class="logo-ico"><img src="brands/hailuo.png" alt="" loading="lazy"></span><span class="pt-txt"><b class="ltr">Hailuo AI</b><small data-i18n="pmh">توليد فيديو بالـ AI</small></span></div>
+        <div class="pt reveal" style="--i:5"><span class="logo-ico"><img src="brands/typeless.png" alt="" loading="lazy"></span><span class="pt-txt"><b class="ltr">Typeless</b><small data-i18n="pt">كتابة بالصوت</small></span></div>
+        <div class="pt reveal" style="--i:6"><span class="logo-ico"><img src="brands/hinoter.png" alt="" loading="lazy"></span><span class="pt-txt"><b class="ltr">HiNoter</b><small data-i18n="ph">ملاحظات وتفريغ صوتي</small></span></div>
+        <div class="pt reveal" style="--i:7"><span class="logo-ico"><img src="brands/youmind.png" alt="" loading="lazy"></span><span class="pt-txt"><b class="ltr">YouMind</b><small data-i18n="py">مساحة عمل AI</small></span></div>
+        <div class="pt reveal" style="--i:8"><span class="logo-ico"><img src="brands/temu.png" alt="" loading="lazy"></span><span class="pt-txt"><b class="ltr">Temu</b><small data-i18n="pte">تجارة إلكترونية</small></span></div>
+        <div class="pt reveal" style="--i:9"><span class="logo-ico"><img src="brands/terabox.png" alt="" loading="lazy"></span><span class="pt-txt"><b class="ltr">TeraBox</b><small data-i18n="ptb">تخزين سحابي</small></span></div>
+        <div class="pt reveal" style="--i:10"><span class="logo-ico fit"><img src="brands/itel.png" alt="" loading="lazy"></span><span class="pt-txt"><b class="ltr">itel Egypt</b><small data-i18n="pi">موبايلات</small></span></div>
+        <div class="pt reveal" style="--i:11"><span class="logo-ico fit"><img src="brands/hlsym.png" alt="" loading="lazy"></span><span class="pt-txt"><b class="ltr">Hollyland</b><small data-i18n="pho">معدات صناع المحتوى</small></span></div>
       </div>
+      <p class="pt-more reveal" data-i18n="brMore" data-html>وكمان: <span class="ltr">i_cam_store · Skywork AI · Pippit AI · Nim AI · Emergent · MGX · BITH AI · Godox · VIAIM · Lenyes · FlexArt AI</span></p>
     </div>
   </section>
 
@@ -1032,6 +1219,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     v1: "The best AI tool in the world", v2: "The best alternative to AI tools", v3: "A hidden trick in Samsung cameras", v4: "ChatGPT shortcuts",
     topsSum: "Together the four videos have <b>9.9M views</b> and <b>141.7K saves</b>.",
     brTitle: "Brands I've worked with",
+    adTitle: "Sponsored campaigns", adSub: "Real ads for AI and tech brands, with their TikTok numbers. Tap any ad to watch it.",
+    adS1: "campaigns on this page", adS2: "views on these ads", adS3: "typical views per ad (median)",
+    pk: "AI agent & assistant", pmm: "AI agents & models", brNote: "A selection of the brands I've worked with, not the full list.", pmh: "AI video generation", pt: "Voice typing", pm: "AI 3D models", pv: "AI coding", ph: "AI notes & transcription",
+    py: "AI workspace", pcs: "Camera & gear store", pte: "E-commerce", ptb: "Cloud storage", pi: "Smartphones", pho: "Creator gear",
+    brMore: "Also: <span class=\"ltr\">i_cam_store · Skywork AI · Pippit AI · Nim AI · Emergent · MGX · BITH AI · Godox · VIAIM · Lenyes · FlexArt AI</span>",
     suTitle: "How I make the content", suSub: "4K video and clean audio, and I edit and write everything myself, so you get a video that's ready to publish.",
     suWorth: "I shoot on gear worth over <b>$5,000</b>",
     suStudio: "Studio", suTools: "Workflow tools",

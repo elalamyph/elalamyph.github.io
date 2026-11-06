@@ -291,6 +291,8 @@ section { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var(--lin
 .brand:hover { border-color: var(--amber); color: var(--amber); }
 
 /* setup & tools */
+.gear-worth { justify-self: start; display: inline-flex; align-items: baseline; gap: 10px; margin-top: 6px; padding: 10px 18px; border: 1px solid color-mix(in srgb, var(--amber) 40%, var(--line)); border-radius: 999px; background: color-mix(in srgb, var(--amber) 8%, var(--surface)); color: var(--fg) !important; font-weight: 600; }
+.gear-worth b { font-family: var(--font-display); font-weight: 800; font-size: var(--step-1); color: var(--amber); direction: ltr; unicode-bidi: isolate; }
 .gear-group { font-size: var(--step--1); color: var(--muted); font-weight: 500; margin: 0 0 14px; }
 .gears + .gear-group { margin-top: 36px; }
 .gears { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; perspective: 1000px; }
@@ -335,10 +337,6 @@ section { padding-block: clamp(56px, 8vw, 96px); border-top: 1px solid var(--lin
 .app-icon.chatgpt { background: linear-gradient(150deg, #19c79a, #0a7f60 75%); color: #fff; }
 [dir="rtl"] .gear-group, [dir="rtl"] .gear-logo .wm-text.muted { font-family: var(--font-body); letter-spacing: 0; text-transform: none; }
 [dir="rtl"] .gear-logo .wm-text.muted { font-size: 12px; font-weight: 600; }
-a.gear { text-decoration: none; color: inherit; }
-.gear-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; font-size: var(--step--1); font-weight: 600; color: var(--amber); justify-self: start; }
-.gear-link .arrow { color: var(--amber); transition: transform .25s var(--ease); }
-a.gear:hover .gear-link .arrow { transform: translate(2px, -2px); }
 .tool h3 { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
 .plan { display: inline-block; padding: 3px 8px 2px; border-radius: 999px; font: 600 11px/1.2 var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--amber-ink); background: linear-gradient(150deg, #ffd08a, var(--amber) 60%, var(--amber-deep)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5); }
 @keyframes bob { 50% { translate: 0 -6px; } }
@@ -747,45 +745,42 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <span class="mono eyebrow">Setup</span>
         <h2 data-i18n="suTitle">إزاي بعمل المحتوى</h2>
         <p data-i18n="suSub">تصوير 4K وصوت نضيف، والمونتاج والكتابة بعملهم بنفسي، فالفيديو بيوصلك جاهز للنشر.</p>
+        <p class="gear-worth" data-i18n="suWorth" data-html>بستخدم معدات بأكتر من <b>$5,000</b></p>
       </div>
       <h3 class="gear-group mono" data-i18n="suStudio">الاستوديو</h3>
       <div class="gears">
-        <a class="gear tilt reveal" style="--i:0" href="https://en.canon-me.com/cameras/eos-r6-mark-ii/" target="_blank" rel="noopener">
+        <div class="gear tilt reveal" style="--i:0">
           <div class="gear-shot"><img src="gear/camera.jpg" alt="Canon EOS R6 Mark II" width="720" height="720" loading="lazy"></div>
           <div class="gear-body">
             <div class="gear-logo"><svg viewBox="0 0 118 25" style="height:16px" role="img" aria-label="Canon"><g fill="#CC0000"> <path d="M19.5607692,22.2512295 C14.0956364,22.2512295 9.66486014,17.8504098 9.66486014,12.4213115 C9.66486014,6.99221311 14.0956364,2.59098361 19.5607692,2.59098361 C21.4875524,2.59098361 23.2851958,3.13770492 24.8055804,4.08360656 L19.5607692,12.4213115 L29.4348112,6.75819672 C28.3629091,5.05901639 26.8235455,3.5954918 24.9586503,2.4852459 C22.5953497,1.07868852 19.3029021,0.208196721 15.6622308,0.208196721 C10.4656923,0.208196721 5.9099021,2.07991803 3.36753846,4.88893443 C1.48861538,6.96434426 0.368440559,9.57909836 0.368440559,12.4213115 C0.368440559,15.2631148 1.48861538,17.8782787 3.36753846,19.9536885 C5.91609091,22.7688525 10.4042168,24.6344262 15.5124615,24.6344262 C20.6207063,24.6344262 25.1071818,22.7672131 27.6577972,19.9536885 C27.7972517,19.7995902 27.9321678,19.642623 28.0633706,19.4831967 L27.6763636,18.0483607 C25.8873846,20.5893443 22.9192308,22.2512295 19.5607692,22.2512295" id="Fill-3"></path> <path d="M39.652951,21.6553279 C37.6655175,21.6553279 36.0543636,20.054918 36.0543636,18.0807377 C36.0543636,16.1069672 37.6655175,14.5065574 39.652951,14.5065574 C41.6403846,14.5065574 43.2515385,16.1069672 43.2515385,18.0807377 C43.2515385,20.054918 41.6403846,21.6553279 39.652951,21.6553279 L39.652951,21.6553279 Z M52.292979,24.0389344 L48.1506014,8.68360656 C47.4834476,6.2045082 45.208028,4.37827869 42.5018671,4.37827869 C41.7992308,4.37827869 41.1254755,4.50163934 40.5016434,4.72745902 L31.5798531,7.95286885 L40.7566224,7.95286885 L42.3252797,13.7684426 C40.8032448,12.4651639 38.8215874,11.6762295 36.6542657,11.6762295 C32.3480909,11.6762295 28.8571888,14.5438525 28.8571888,18.0807377 C28.8571888,21.6180328 32.3480909,24.4852459 36.6542657,24.4852459 C39.7523846,24.4852459 42.4960909,22.9790984 44.1852238,20.6639344 L45.0953916,24.0389344 L52.292979,24.0389344 L52.292979,24.0389344 Z" id="Fill-4"></path> <path d="M69.1913217,4.37827869 C68.6475315,4.37827869 68.1326224,4.49877049 67.6705245,4.71311475 L61.9446364,7.36516393 C61.6628392,5.67090164 60.1816503,4.37827869 58.3955594,4.37827869 C57.8517692,4.37827869 57.3368601,4.49877049 56.8747622,4.71311475 L49.8805804,7.95286885 L54.796972,7.95286885 L54.796972,24.0389344 L61.9941469,24.0389344 L61.9937343,9.74016393 C61.9937343,8.75327869 62.7995175,7.95286885 63.7934406,7.95286885 C64.786951,7.95286885 65.5927343,8.75327869 65.5927343,9.74016393 L65.5927343,24.0389344 L72.7894965,24.0389344 L72.7894965,7.95286885 C72.7894965,5.97868852 71.1787552,4.37827869 69.1913217,4.37827869" id="Fill-5"></path> <path d="M114.323434,4.37827869 C113.780056,4.37827869 113.264734,4.49877049 112.802636,4.71311475 L107.077161,7.36516393 C106.794951,5.67090164 105.31335,4.37827869 103.527671,4.37827869 C102.984294,4.37827869 102.468972,4.49877049 102.006874,4.71311475 L95.0126923,7.95286885 L99.9294965,7.95286885 L99.9294965,24.0389344 L107.126259,24.0389344 L107.126259,9.74016393 C107.126259,8.75327869 107.931629,7.95286885 108.925552,7.95286885 C109.919476,7.95286885 110.724846,8.75327869 110.724846,9.74016393 L110.725259,24.0389344 L117.922021,24.0389344 L117.922021,7.95286885 C117.922021,5.97868852 116.31128,4.37827869 114.323434,4.37827869" id="Fill-6"></path> <path d="M86.4106573,7.4545082 C86.0892517,6.26229508 84.8556154,5.55491803 83.6562238,5.87418033 C82.4564196,6.19385246 81.7438811,7.41885246 82.0661119,8.61065574 L85.5586643,21.5586066 C85.8800699,22.7508197 87.1132937,23.4577869 88.3130979,23.1381148 C89.5133147,22.8188525 90.225028,21.5942623 89.9036224,20.4020492 L86.4106573,7.4545082 L86.4106573,7.4545082 Z M96.1807273,14.5065574 C96.1807273,20.0995902 91.6158601,24.6344262 85.9848671,24.6344262 C80.3534615,24.6344262 75.789007,20.0995902 75.789007,14.5065574 C75.789007,8.91270492 80.3534615,4.37827869 85.9848671,4.37827869 C91.6158601,4.37827869 96.1807273,8.91270492 96.1807273,14.5065574 L96.1807273,14.5065574 Z" id="Fill-7"></path> </g></svg></div>
             <h3 class="ltr">Canon EOS R6 Mark II</h3>
             <p data-i18n="g1">الكاميرا الأساسية · تصوير 4K</p>
-            <span class="gear-link"><span data-i18n="gLink">السعر والمواصفات</span><span class="arrow" aria-hidden="true">↗</span></span>
           </div>
-        </a>
-        <a class="gear tilt reveal" style="--i:1" href="https://www.hollyland.com/product/lark-max2" target="_blank" rel="noopener">
+        </div>
+        <div class="gear tilt reveal" style="--i:1">
           <div class="gear-shot"><img src="gear/mic.jpg" alt="Hollyland Lark Max 2" width="720" height="720" loading="lazy"></div>
           <div class="gear-body">
             <div class="gear-logo"><span class="mask" style="--src:url(logos/hollyland.png)" role="img" aria-label="Hollyland"></span><span class="wm-text">Hollyland</span></div>
             <h3 class="ltr">Lark Max 2</h3>
             <p data-i18n="g2">أقوى مايك من Hollyland، لصوت نضيف وواضح</p>
-            <span class="gear-link"><span data-i18n="gLink">السعر والمواصفات</span><span class="arrow" aria-hidden="true">↗</span></span>
           </div>
-        </a>
-        <a class="gear tilt reveal" style="--i:2" href="https://www.samsung.com/eg/smartphones/galaxy-s25-ultra/buy/" target="_blank" rel="noopener">
+        </div>
+        <div class="gear tilt reveal" style="--i:2">
           <div class="gear-shot"><img src="gear/phone.jpg" alt="Samsung Galaxy S25 Ultra" width="720" height="720" loading="lazy"></div>
           <div class="gear-body">
             <div class="gear-logo"><svg viewBox="0 10.1 24 3.8" style="height:12px;fill:currentColor" role="img" aria-label="Samsung"><path d="M19.8166 10.2808l.0459 2.6934h-.023l-.7793-2.6934h-1.2837v3.3925h.8481l-.0458-2.785h.023l.8366 2.785h1.2264v-3.3925zm-16.149 0l-.6418 3.427h.9284l.4699-3.1175h.0229l.4585 3.1174h.9169l-.6304-3.4269zm5.1805 0l-.424 2.6132h-.023l-.424-2.6132H6.5788l-.0688 3.427h.8596l.023-3.0832h.0114l.573 3.0831h.8711l.5731-3.083h.023l.0228 3.083h.8596l-.0802-3.4269zm-7.2664 2.4527c.0343.0802.0229.1949.0114.2522-.0229.1146-.1031.2292-.3324.2292-.2177 0-.3438-.126-.3438-.3095v-.3323H0v.2636c0 .7679.6074.9971 1.2493.9971.6189 0 1.1346-.2178 1.2149-.7794.0458-.298.0114-.4928 0-.5616-.1605-.722-1.467-.9283-1.5588-1.3295-.0114-.0688-.0114-.1375 0-.1834.023-.1146.1032-.2292.3095-.2292.2063 0 .321.126.321.3095v.2063h.8595v-.2407c0-.745-.6762-.8596-1.1576-.8596-.6074 0-1.1117.2063-1.2034.7564-.023.149-.0344.2866.0114.4585.1376.7106 1.364.9169 1.5358 1.3524m11.152 0c.0343.0803.0228.1834.0114.2522-.023.1146-.1032.2292-.3324.2292-.2178 0-.3438-.126-.3438-.3095v-.3323h-.917v.2636c0 .7564.596.9857 1.2379.9857.6189 0 1.1232-.2063 1.2034-.7794.0459-.298.0115-.4814 0-.5616-.1375-.7106-1.4327-.9284-1.5243-1.318-.0115-.0688-.0115-.1376 0-.1835.0229-.1146.1031-.2292.3094-.2292.1948 0 .321.126.321.3095v.2063h.848v-.2407c0-.745-.6647-.8596-1.146-.8596-.6075 0-1.1004.1948-1.192.7564-.023.149-.023.2866.0114.4585.1376.7106 1.341.9054 1.513 1.3524m2.8882.4585c.2407 0 .3094-.1605.3323-.2522.0115-.0343.0115-.0917.0115-.126v-2.533h.871v2.4642c0 .0688 0 .1948-.0114.2292-.0573.6419-.5616.8482-1.192.8482-.6303 0-1.1346-.2063-1.192-.8482 0-.0344-.0114-.1604-.0114-.2292v-2.4642h.871v2.533c0 .0458 0 .0916.0115.126 0 .0917.0688.2522.3095.2522m7.1518-.0344c.2522 0 .3324-.1605.3553-.2522.0115-.0343.0115-.0917.0115-.126v-.4929h-.3553v-.5043H24v.917c0 .0687 0 .1145-.0115.2292-.0573.6303-.596.8481-1.2034.8481-.6075 0-1.1461-.2178-1.2034-.8481-.0115-.1147-.0115-.1605-.0115-.2293v-1.444c0-.0574.0115-.172.0115-.2293.0802-.6419.596-.8482 1.2034-.8482s1.1347.2063 1.2034.8482c.0115.1031.0115.2292.0115.2292v.1146h-.8596v-.1948s0-.0803-.0115-.1261c-.0114-.0802-.0802-.2521-.3438-.2521-.2521 0-.321.1604-.3438.2521-.0115.0458-.0115.1032-.0115.1605v1.5702c0 .0458 0 .0916.0115.126 0 .0917.0917.2522.3323.2522"/></svg></div>
             <h3 class="ltr">Galaxy S25 Ultra</h3>
             <p data-i18n="g3">تصوير الموبايل ومراجعات الأجهزة</p>
-            <span class="gear-link"><span data-i18n="gLink">السعر والمواصفات</span><span class="arrow" aria-hidden="true">↗</span></span>
           </div>
-        </a>
-        <a class="gear tilt reveal" style="--i:3" href="https://www.apple.com/shop/buy-mac/macbook-pro" target="_blank" rel="noopener">
+        </div>
+        <div class="gear tilt reveal" style="--i:3">
           <div class="gear-shot"><img src="gear/macbook.jpg" alt="MacBook Pro" width="720" height="720" loading="lazy"></div>
           <div class="gear-body">
             <div class="gear-logo"><svg viewBox="0 0 24 24" style="height:20px;fill:currentColor" role="img" aria-label="Apple"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg></div>
             <h3 class="ltr">MacBook Pro · M4 Pro</h3>
             <p data-i18n="g4">مونتاج وكتابة من أي مكان</p>
-            <span class="gear-link"><span data-i18n="gLink">السعر والمواصفات</span><span class="arrow" aria-hidden="true">↗</span></span>
           </div>
-        </a>
+        </div>
         <div class="gear tilt reveal" style="--i:4">
           <div class="gear-shot"><img src="gear/pc.jpg" alt="Editing PC" width="720" height="720" loading="lazy"></div>
           <div class="gear-body">
@@ -946,8 +941,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     topsSum: "Together the four videos have <b>9.9M views</b> and <b>141.7K saves</b>.",
     brTitle: "Brands I've worked with",
     suTitle: "How I make the content", suSub: "4K video and clean audio, and I edit and write everything myself, so you get a video that's ready to publish.",
+    suWorth: "I shoot on gear worth over <b>$5,000</b>",
     suStudio: "Studio", suTools: "Workflow tools",
-    gLink: "Price & specs", gPcTag: "Custom build", gLightTag: "Studio light",
+    gPcTag: "Custom build", gLightTag: "Studio light",
     g1: "Main camera · 4K video", g2: "Hollyland's flagship mic, for clean, clear audio", g3: "Mobile shooting and device reviews",
     g4: "Editing and writing on the go", g5: "Editing and rendering heavy videos", g6: "Consistent, professional light on every shoot",
     t1: "Editing and effects", t2: "Research, scripts and automated edits", t3: "Ideas and quick research",

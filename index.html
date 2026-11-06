@@ -131,13 +131,13 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   background-size: 28px 28px;
   -webkit-mask: radial-gradient(80% 70% at 50% 40%, #000, transparent); mask: radial-gradient(80% 70% at 50% 40%, #000, transparent);
 }
-.tape { position: absolute; left: -25%; width: 150%; height: 42px; display: flex; align-items: center; overflow: hidden; direction: ltr; }
-.tape-a { top: 18%; rotate: -8deg; z-index: 2; background: linear-gradient(90deg, var(--amber-deep), var(--amber) 50%, #ffd08a); color: var(--amber-ink); box-shadow: 0 12px 30px -10px rgba(255, 140, 30, .55); }
-.tape-b { top: 40%; rotate: 6deg; z-index: 1; background: #0c0a08; color: var(--fg); border-block: 1px solid color-mix(in srgb, var(--amber) 40%, transparent); }
-.tape-track { display: flex; width: max-content; white-space: nowrap; animation: slide 24s linear infinite; font: 800 15px/1 var(--font-display); letter-spacing: .08em; text-transform: uppercase; }
-.tape-b .tape-track { animation-duration: 30s; animation-direction: reverse; font: 500 13px/1 var(--font-mono); letter-spacing: .12em; }
-.tape-track span { padding-inline: 14px; }
-.tape-track i { font-style: normal; opacity: .7; }
+.feather { position: absolute; inset: -6% -4% 0; width: 108%; height: 106%; filter: drop-shadow(0 0 8px rgba(255, 160, 50, .6)); transform: translate3d(calc(var(--px) * -10px), calc(var(--py) * -8px), 0); transition: transform .4s var(--ease); }
+.fl-base { animation: sway 9s ease-in-out infinite; transform-origin: 50% 50%; }
+.fl-quill { opacity: .9; animation: sway 9s ease-in-out infinite; transform-origin: 50% 50%; }
+.fl-shine path { stroke-dasharray: 70 530; stroke-dashoffset: 600; opacity: .9; animation: flow 5.5s cubic-bezier(.45, 0, .25, 1) infinite; animation-delay: calc(var(--d) * -.31s); }
+.fl-shine { animation: sway 9s ease-in-out infinite; transform-origin: 50% 50%; mix-blend-mode: screen; }
+@keyframes flow { to { stroke-dashoffset: 0; } }
+@keyframes sway { 50% { transform: translateY(-6px) rotate(-1.2deg); } }
 .p-cut {
   position: absolute; left: 1px; bottom: 1px; width: calc(100% - 2px); height: auto; z-index: 3; border-radius: 0 0 27px 27px;
   filter: drop-shadow(0 24px 30px rgba(0, 0, 0, .55)) drop-shadow(0 0 1px rgba(255, 210, 150, .35));
@@ -473,6 +473,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   .p-chip { -webkit-backdrop-filter: none; backdrop-filter: none; background: #1d1913; box-shadow: none; }
   .p-card { box-shadow: none; }
   .p-cut { filter: none; }
+  .feather { filter: none; }
+  .fl-shine { display: none; }
   .ribbon .wrap, .metrics, .tops { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .why, .platforms, .aud, .services { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .gears, .tools { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -538,8 +540,69 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <figure class="portrait" id="portrait">
         <div class="p-glow" aria-hidden="true"></div>
         <div class="p-card" aria-hidden="true">
-          <div class="tape tape-a"><div class="tape-track"><span>AI Tools</span><i>✦</i><span>Apps</span><i>✦</i><span>Phone Reviews</span><i>✦</i><span>Tutorials</span><i>✦</i> <span>AI Tools</span><i>✦</i><span>Apps</span><i>✦</i><span>Phone Reviews</span><i>✦</i><span>Tutorials</span><i>✦</i> <span>AI Tools</span><i>✦</i><span>Apps</span><i>✦</i><span>Phone Reviews</span><i>✦</i><span>Tutorials</span><i>✦</i> <span>AI Tools</span><i>✦</i><span>Apps</span><i>✦</i><span>Phone Reviews</span><i>✦</i><span>Tutorials</span><i>✦</i></div></div>
-          <div class="tape tape-b"><div class="tape-track"><span>@elalamy_ph</span><i>•</i><span>Media Kit 2026</span><i>•</i><span>486K+ followers</span><i>•</i> <span>@elalamy_ph</span><i>•</i><span>Media Kit 2026</span><i>•</i><span>486K+ followers</span><i>•</i> <span>@elalamy_ph</span><i>•</i><span>Media Kit 2026</span><i>•</i><span>486K+ followers</span><i>•</i> <span>@elalamy_ph</span><i>•</i><span>Media Kit 2026</span><i>•</i><span>486K+ followers</span><i>•</i></div></div>
+          <svg class="feather" viewBox="0 0 400 360" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="fg" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#ffb547" stop-opacity="0"/>
+                <stop offset=".25" stop-color="#ff8a1f"/>
+                <stop offset=".6" stop-color="#ffd08a"/>
+                <stop offset="1" stop-color="#ffb547" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g class="fl-base" fill="none" stroke="url(#fg)" stroke-linecap="round">
+            <path d="M-40.0 214.7 C80.0 230.8 300.0 -140.8 440.0 83.2" stroke-width="0.74" opacity="0.37"/>
+            <path d="M-40.0 216.9 C80.0 240.2 300.0 -130.2 440.0 86.4" stroke-width="0.82" opacity="0.42"/>
+            <path d="M-40.0 219.1 C80.0 249.8 300.0 -119.8 440.0 89.6" stroke-width="0.91" opacity="0.47"/>
+            <path d="M-40.0 221.3 C80.0 259.2 300.0 -109.2 440.0 92.8" stroke-width="0.99" opacity="0.52"/>
+            <path d="M-40.0 223.5 C80.0 268.8 300.0 -98.8 440.0 96.0" stroke-width="1.07" opacity="0.57"/>
+            <path d="M-40.0 225.7 C80.0 278.2 300.0 -88.2 440.0 99.2" stroke-width="1.16" opacity="0.62"/>
+            <path d="M-40.0 227.9 C80.0 287.8 300.0 -77.8 440.0 102.4" stroke-width="1.24" opacity="0.68"/>
+            <path d="M-40.0 230.1 C80.0 297.2 300.0 -67.2 440.0 105.6" stroke-width="1.32" opacity="0.72"/>
+            <path d="M-40.0 232.3 C80.0 306.8 300.0 -56.8 440.0 108.8" stroke-width="1.41" opacity="0.77"/>
+            <path d="M-40.0 234.5 C80.0 316.2 300.0 -46.2 440.0 112.0" stroke-width="1.49" opacity="0.82"/>
+            <path d="M-40.0 236.7 C80.0 325.8 300.0 -35.8 440.0 115.2" stroke-width="1.57" opacity="0.88"/>
+            <path d="M-40.0 238.9 C80.0 335.2 300.0 -25.2 440.0 118.4" stroke-width="1.66" opacity="0.92"/>
+            <path d="M-40.0 241.1 C80.0 344.8 300.0 -14.8 440.0 121.6" stroke-width="1.66" opacity="0.92"/>
+            <path d="M-40.0 243.3 C80.0 354.2 300.0 -4.2 440.0 124.8" stroke-width="1.57" opacity="0.88"/>
+            <path d="M-40.0 245.5 C80.0 363.8 300.0 6.2 440.0 128.0" stroke-width="1.49" opacity="0.82"/>
+            <path d="M-40.0 247.7 C80.0 373.2 300.0 16.8 440.0 131.2" stroke-width="1.41" opacity="0.77"/>
+            <path d="M-40.0 249.9 C80.0 382.8 300.0 27.2 440.0 134.4" stroke-width="1.32" opacity="0.72"/>
+            <path d="M-40.0 252.1 C80.0 392.2 300.0 37.8 440.0 137.6" stroke-width="1.24" opacity="0.68"/>
+            <path d="M-40.0 254.3 C80.0 401.8 300.0 48.2 440.0 140.8" stroke-width="1.16" opacity="0.62"/>
+            <path d="M-40.0 256.5 C80.0 411.2 300.0 58.8 440.0 144.0" stroke-width="1.07" opacity="0.57"/>
+            <path d="M-40.0 258.7 C80.0 420.8 300.0 69.2 440.0 147.2" stroke-width="0.99" opacity="0.52"/>
+            <path d="M-40.0 260.9 C80.0 430.2 300.0 79.8 440.0 150.4" stroke-width="0.91" opacity="0.47"/>
+            <path d="M-40.0 263.1 C80.0 439.8 300.0 90.2 440.0 153.6" stroke-width="0.82" opacity="0.42"/>
+            <path d="M-40.0 265.3 C80.0 449.2 300.0 100.8 440.0 156.8" stroke-width="0.74" opacity="0.37"/>
+            </g>
+            <g class="fl-shine" fill="none" stroke="#ffe2b0" stroke-linecap="round">
+            <path d="M-40.0 214.7 C80.0 230.8 300.0 -140.8 440.0 83.2" pathLength="600" style="--d:0" stroke-width="1.24"/>
+            <path d="M-40.0 216.9 C80.0 240.2 300.0 -130.2 440.0 86.4" pathLength="600" style="--d:1" stroke-width="1.32"/>
+            <path d="M-40.0 219.1 C80.0 249.8 300.0 -119.8 440.0 89.6" pathLength="600" style="--d:2" stroke-width="1.41"/>
+            <path d="M-40.0 221.3 C80.0 259.2 300.0 -109.2 440.0 92.8" pathLength="600" style="--d:3" stroke-width="1.49"/>
+            <path d="M-40.0 223.5 C80.0 268.8 300.0 -98.8 440.0 96.0" pathLength="600" style="--d:4" stroke-width="1.57"/>
+            <path d="M-40.0 225.7 C80.0 278.2 300.0 -88.2 440.0 99.2" pathLength="600" style="--d:5" stroke-width="1.66"/>
+            <path d="M-40.0 227.9 C80.0 287.8 300.0 -77.8 440.0 102.4" pathLength="600" style="--d:6" stroke-width="1.74"/>
+            <path d="M-40.0 230.1 C80.0 297.2 300.0 -67.2 440.0 105.6" pathLength="600" style="--d:7" stroke-width="1.82"/>
+            <path d="M-40.0 232.3 C80.0 306.8 300.0 -56.8 440.0 108.8" pathLength="600" style="--d:8" stroke-width="1.91"/>
+            <path d="M-40.0 234.5 C80.0 316.2 300.0 -46.2 440.0 112.0" pathLength="600" style="--d:9" stroke-width="1.99"/>
+            <path d="M-40.0 236.7 C80.0 325.8 300.0 -35.8 440.0 115.2" pathLength="600" style="--d:10" stroke-width="2.08"/>
+            <path d="M-40.0 238.9 C80.0 335.2 300.0 -25.2 440.0 118.4" pathLength="600" style="--d:11" stroke-width="2.16"/>
+            <path d="M-40.0 241.1 C80.0 344.8 300.0 -14.8 440.0 121.6" pathLength="600" style="--d:12" stroke-width="2.16"/>
+            <path d="M-40.0 243.3 C80.0 354.2 300.0 -4.2 440.0 124.8" pathLength="600" style="--d:13" stroke-width="2.08"/>
+            <path d="M-40.0 245.5 C80.0 363.8 300.0 6.2 440.0 128.0" pathLength="600" style="--d:14" stroke-width="1.99"/>
+            <path d="M-40.0 247.7 C80.0 373.2 300.0 16.8 440.0 131.2" pathLength="600" style="--d:15" stroke-width="1.91"/>
+            <path d="M-40.0 249.9 C80.0 382.8 300.0 27.2 440.0 134.4" pathLength="600" style="--d:16" stroke-width="1.82"/>
+            <path d="M-40.0 252.1 C80.0 392.2 300.0 37.8 440.0 137.6" pathLength="600" style="--d:17" stroke-width="1.74"/>
+            <path d="M-40.0 254.3 C80.0 401.8 300.0 48.2 440.0 140.8" pathLength="600" style="--d:18" stroke-width="1.66"/>
+            <path d="M-40.0 256.5 C80.0 411.2 300.0 58.8 440.0 144.0" pathLength="600" style="--d:19" stroke-width="1.57"/>
+            <path d="M-40.0 258.7 C80.0 420.8 300.0 69.2 440.0 147.2" pathLength="600" style="--d:20" stroke-width="1.49"/>
+            <path d="M-40.0 260.9 C80.0 430.2 300.0 79.8 440.0 150.4" pathLength="600" style="--d:21" stroke-width="1.41"/>
+            <path d="M-40.0 263.1 C80.0 439.8 300.0 90.2 440.0 153.6" pathLength="600" style="--d:22" stroke-width="1.32"/>
+            <path d="M-40.0 265.3 C80.0 449.2 300.0 100.8 440.0 156.8" pathLength="600" style="--d:23" stroke-width="1.24"/>
+            </g>
+            <path class="fl-quill" d="M-40.0 240.0 C80.0 340.0 300.0 -20.0 440.0 120.0" fill="none" stroke="url(#fg)" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
         </div>
         <img class="p-cut" src="portrait.png" alt="محمود عثمان" width="900" height="900" fetchpriority="high">
         <div class="p-chip chip-a"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-3.3 0-7 1.7-7 4.5V20h14v-2.5C16 14.7 12.3 13 9 13zm7.5-2a3.5 3.5 0 1 0-1-6.9 6 6 0 0 1 0 6.8c.3.1.6.1 1 .1zm1.4 2.1A5.8 5.8 0 0 1 20 17.5V20h2v-2.5c0-2.1-1.8-3.6-4.1-4.4z"/></svg></span><span><b>486K+</b><small data-i18n="chipA">متابع على 3 منصات</small></span></div>

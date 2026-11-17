@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
-<link rel="preload" as="image" href="portrait.png">
+<link rel="preload" as="image" href="portrait-3d.png">
 <style>
 /* Layout: a creator's studio at night — cut-out portrait hero popping out of a card with moving ribbons, then data sections on a warm dark ground lit by the amber neon from his own photo */
 :root {
@@ -116,7 +116,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .verified { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: var(--step--1); }
 .verified svg { width: 16px; height: 16px; fill: var(--leaf); flex: none; }
 
-.portrait { position: relative; aspect-ratio: 100 / 112; width: 100%; max-width: 460px; justify-self: center; margin: 0; --px: 0; --py: 0; }
+.portrait { position: relative; aspect-ratio: 100 / 112; width: 100%; max-width: 460px; justify-self: center; margin: 0; --px: 0; --py: 0; perspective: 1100px; }
 .p-glow { position: absolute; inset: 22% -10% -8%; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--amber) 42%, transparent), transparent); filter: blur(40px); z-index: 0; pointer-events: none; }
 .p-card {
   position: absolute; inset: 24% 0 0; border-radius: 28px; overflow: hidden; z-index: 1;
@@ -141,7 +141,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .p-cut {
   position: absolute; left: 1px; bottom: 1px; width: calc(100% - 2px); height: auto; z-index: 3; border-radius: 0 0 27px 27px;
   filter: drop-shadow(0 24px 30px rgba(0, 0, 0, .55)) drop-shadow(0 0 1px rgba(255, 210, 150, .35));
-  transform: translate3d(calc(var(--px) * 8px), calc(var(--py) * 5px), 0); transition: transform .4s var(--ease);
+  transform: translate3d(calc(var(--px) * 10px), calc(var(--py) * 6px), 0) rotateY(calc(var(--px) * 9deg)) rotateX(calc(var(--py) * -6deg));
+  transform-origin: 50% 100%; transition: transform .5s var(--ease);
 }
 .p-chip {
   position: absolute; z-index: 4; display: flex; align-items: center; gap: 10px; padding: 10px 16px 10px 10px; border-radius: 16px;
@@ -166,7 +167,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
   .hero-text > :nth-child(4) { animation-delay: .24s; }
   .hero-text > :nth-child(5) { animation-delay: .32s; }
   .hero-text > :nth-child(6) { animation-delay: .4s; }
-  .p-cut { animation: emerge 1.2s var(--ease) both; }
+  .p-cut { animation: emerge 1.2s var(--ease) both, breathe 6s ease-in-out 1.2s infinite; }
   .p-card { animation: emerge 1s var(--ease) both; }
 }
 
@@ -459,6 +460,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 @keyframes rise { from { opacity: 0; translate: 0 18px; } }
 @keyframes lift { from { transform: translateY(16px); } }
 @keyframes emerge { from { translate: 0 6%; } }
+@keyframes breathe { 50% { translate: 0 -5px; scale: 1.012; } }
 @keyframes growX { from { transform: scaleX(0); } }
 @keyframes growY { from { transform: scaleY(0); } }
 @keyframes slide { to { transform: translateX(-50%); } }
@@ -668,7 +670,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <path class="fl-quill" d="M-40.0 240.0 C80.0 340.0 300.0 -20.0 440.0 120.0" fill="none" stroke="url(#fg)" stroke-width="2.2" stroke-linecap="round"/>
           </svg>
         </div>
-        <img class="p-cut" src="portrait.png" alt="محمود عثمان" width="900" height="900" fetchpriority="high">
+        <img class="p-cut" src="portrait-3d.png" alt="محمود عثمان" width="900" height="900" fetchpriority="high">
         <div class="p-chip chip-a"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-3.3 0-7 1.7-7 4.5V20h14v-2.5C16 14.7 12.3 13 9 13zm7.5-2a3.5 3.5 0 1 0-1-6.9 6 6 0 0 1 0 6.8c.3.1.6.1 1 .1zm1.4 2.1A5.8 5.8 0 0 1 20 17.5V20h2v-2.5c0-2.1-1.8-3.6-4.1-4.4z"/></svg></span><span><b>494K+</b><small data-i18n="chipA">متابع على 3 منصات</small></span></div>
         <div class="p-chip chip-b"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.4-6.5a1 1 0 0 0 0-1.8L9.5 4.6A1 1 0 0 0 8 5.5z"/></svg></span><span><b>11M+</b><small data-i18n="chipB">مشاهدة في آخر 90 يوم</small></span></div>
       </figure>
